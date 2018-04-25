@@ -168,3 +168,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+REST_AUTH_SERIALIZERS = {
+    'TOKEN_SERIALIZER': 'authentication.serializers.TokenSerializer',
+}
