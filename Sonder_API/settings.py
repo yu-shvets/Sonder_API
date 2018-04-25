@@ -25,7 +25,7 @@ SECRET_KEY = 'j2@vm0y2k5w0mw=rz)f($^tq-^z6r7+afkew4n4$iot7ydx1w!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -95,7 +95,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sonder_api',
-        'USER': 'sonder_blu_user',
+        'USER': 'django',
         'PASSWORD': '********',
         'HOST': 'localhost',
         'PORT': '',
@@ -140,10 +140,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/home/django/Sonder_API/static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/home/django/Sonder_API/media/'
 
 
 REST_FRAMEWORK = {
