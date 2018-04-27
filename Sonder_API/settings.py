@@ -175,3 +175,5 @@ REST_AUTH_SERIALIZERS = {
     'TOKEN_SERIALIZER': 'authentication.serializers.TokenSerializer',
 }
 
+
+
