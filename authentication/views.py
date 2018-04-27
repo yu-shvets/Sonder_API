@@ -12,11 +12,14 @@ from rest_auth.social_serializers import TwitterLoginSerializer
 from friendship.models import Friend, FriendshipRequest
 from rest_framework import generics
 from .models import UserProfiles
+from rest_framework.filters import SearchFilter
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    filter_backends = (SearchFilter,)
+    search_fields = ('username',)
 
 
 class CustomAuthToken(ObtainAuthToken):
