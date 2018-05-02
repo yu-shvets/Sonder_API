@@ -5,6 +5,7 @@ from authentication.serializers import UserSerializer
 
 class GroupSerializer(serializers.ModelSerializer):
     members = UserSerializer(many=True, read_only=True)
+    author = UserSerializer(read_only=True)
 
     class Meta:
         model = Groups

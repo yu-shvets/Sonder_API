@@ -9,8 +9,7 @@ from django.contrib.auth.models import User
 class GroupsList(viewsets.ViewSet):
 
     def list(self, request):
-        users = User.objects.filter(pk=request.user.pk)
-        queryset = Groups.objects.filter(members__in=users)
+        queryset = Groups.objects.all()
         serializer = GroupSerializer(queryset, many=True)
         return Response(serializer.data)
 
@@ -26,3 +25,12 @@ class GroupsCreate(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+
+
+# class GroupsList(viewsets.ViewSet):
+#
+#     def list(self, request):
+#         users = User.objects.filter(pk=request.user.pk)
+#         queryset = Groups.objects.filter(members__in=users)
+#         serializer = GroupSerializer(queryset, many=True)
+#         return Response(serializer.data)
