@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics, viewsets
 from .models import Groups
-from .serializers import GroupSerializer
+from .serializers import GroupSerializer, GroupCreateSerializer
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 
@@ -21,7 +21,7 @@ class GroupDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class GroupsCreate(generics.ListCreateAPIView):
     queryset = Groups.objects.all()
-    serializer_class = GroupSerializer
+    serializer_class = GroupCreateSerializer
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
