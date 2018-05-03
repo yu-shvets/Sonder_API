@@ -6,12 +6,9 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 
 
-class GroupsList(viewsets.ViewSet):
-
-    def list(self, request):
-        queryset = Groups.objects.all()
-        serializer = GroupSerializer(queryset, many=True)
-        return Response(serializer.data)
+class GroupsList(generics.ListCreateAPIView):
+    queryset = Groups.objects.all()
+    serializer_class = GroupSerializer
 
 
 class GroupDetail(generics.RetrieveUpdateDestroyAPIView):

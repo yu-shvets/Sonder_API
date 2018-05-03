@@ -39,7 +39,7 @@ urlpatterns = [
     url(r'^api/movies/$', MoviesList.as_view()),
     url(r'^api/movies/(?P<pk>[0-9]+)/$', MovieDetail.as_view()),
 
-    url(r'^api/groups/$', GroupsList.as_view({'get': 'list'})),
+    url(r'^api/groups/$', GroupsList.as_view()),
     url(r'^api/groups/(?P<pk>[0-9]+)/$', GroupDetail.as_view()),
     url(r'^api/groups/create/$', GroupsCreate.as_view()),
 
