@@ -15,7 +15,7 @@ class CommonInfo(models.Model):
 
 class Groups(CommonInfo):
     name = models.CharField(max_length=256, blank=True, default='')
-    image = models.ImageField(upload_to='groups/photos')
+    image = models.ImageField(upload_to='groups/photos', blank=True, default='groups/photos/joker.png')
     author = models.ForeignKey(User, related_name='author')
     categories = models.ManyToManyField(Categories, blank=True)
     movies = models.ManyToManyField(Movies, blank=True)

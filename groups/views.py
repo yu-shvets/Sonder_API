@@ -13,7 +13,7 @@ class GroupsList(generics.ListCreateAPIView):
 
 class GroupDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Groups.objects.all()
-    serializer_class = GroupSerializer
+    serializer_class = GroupCreateSerializer
 
 
 class GroupsCreate(generics.ListCreateAPIView):
