@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .models import Movies
-from .serializers import MovieSerializer
+from .models import Movies, Categories
+from .serializers import MovieSerializer, CategorySerializer
 from rest_framework.filters import SearchFilter
 
 
@@ -15,3 +15,13 @@ class MoviesList(generics.ListCreateAPIView):
 class MovieDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Movies.objects.all()
     serializer_class = MovieSerializer
+
+
+class CategoriesList(generics.ListCreateAPIView):
+    queryset = Categories.objects.all()
+    serializer_class = CategorySerializer
+
+
+class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Categories.objects.all()
+    serializer_class = CategorySerializer

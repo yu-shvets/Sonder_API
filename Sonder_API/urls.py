@@ -20,9 +20,9 @@ from django.conf.urls.static import static
 from rest_framework import routers
 from authentication.views import UserViewSet, CustomAuthToken, FacebookLogin, TwitterLogin, FriendsList, send_request, \
     accept_request, FriendshipRequestsList, cancel_request, remove_friend, UserProfileCreate
-from movies.views import MoviesList, MovieDetail
+from movies.views import MoviesList, MovieDetail, CategoriesList, CategoryDetail
 from groups.views import GroupsList, GroupDetail, GroupsCreate
-from feeds.views import PostsList, PostDetail
+from feeds.views import PostsList, PostDetail, CommentsList, CommentDetail, CommentCreate
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
@@ -38,6 +38,9 @@ urlpatterns = [
 
     url(r'^api/movies/$', MoviesList.as_view()),
     url(r'^api/movies/(?P<pk>[0-9]+)/$', MovieDetail.as_view()),
+    url(r'^api/categories/$', CategoriesList.as_view()),
+    url(r'^api/categories/(?P<pk>[0-9]+)/$', CategoryDetail.as_view()),
+
 
     url(r'^api/groups/$', GroupsList.as_view()),
     url(r'^api/groups/(?P<pk>[0-9]+)/$', GroupDetail.as_view()),
@@ -45,6 +48,9 @@ urlpatterns = [
 
     url(r'^api/posts/$', PostsList.as_view()),
     url(r'^api/posts/(?P<pk>[0-9]+)/$', PostDetail.as_view()),
+    url(r'^api/comments/$', CommentsList.as_view()),
+    url(r'^api/comments/(?P<pk>[0-9]+)/$', CommentDetail.as_view()),
+    url(r'^api/comments/create/$', CommentCreate.as_view()),
 
     url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
