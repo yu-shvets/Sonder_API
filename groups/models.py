@@ -16,10 +16,12 @@ class CommonInfo(models.Model):
 class Groups(CommonInfo):
     name = models.CharField(max_length=256, blank=True, default='')
     image = models.ImageField(upload_to='groups/photos', blank=True, default='groups/photos/joker.png')
+    description = models.TextField(blank=True, default='')
     author = models.ForeignKey(User, related_name='author')
     categories = models.ManyToManyField(Categories, blank=True)
     movies = models.ManyToManyField(Movies, blank=True)
     members = models.ManyToManyField(User, blank=True, related_name='group_members')
+    admin_rights = models.ManyToManyField(User, blank=True, related_name='admin_rights')
 
     class Meta(CommonInfo.Meta):
         verbose_name = "Group"
