@@ -30,6 +30,7 @@ class Categories(MPTTModel):
 
 class Movies(CommonInfo):
     title = models.CharField(max_length=256)
+    image = models.ImageField(upload_to='movies/photos', blank=True, default='groups/photos/joker.png')
     description = models.TextField(blank=True, default='')
     source = models.CharField(max_length=256, blank=True, default='')
     category = models.ManyToManyField(Categories, blank=True)
