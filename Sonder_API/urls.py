@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from rest_framework import routers
 from authentication.views import UserViewSet, CustomAuthToken, FacebookLogin, TwitterLogin, FriendsList, send_request, \
     accept_request, FriendshipRequestsList, cancel_request, remove_friend, UserProfileCreate
-from movies.views import MoviesList, MovieDetail, CategoriesList, CategoryDetail
+from movies.views import MoviesList, MovieDetail, CategoriesList, CategoryDetail, ReviewsList, ReviewDetail
 from groups.views import GroupsList, GroupDetail, GroupsCreate
 from feeds.views import PostsList, PostDetail, CommentsList, CommentDetail, CommentCreate
 
@@ -40,7 +40,8 @@ urlpatterns = [
     url(r'^api/movies/(?P<pk>[0-9]+)/$', MovieDetail.as_view()),
     url(r'^api/categories/$', CategoriesList.as_view()),
     url(r'^api/categories/(?P<pk>[0-9]+)/$', CategoryDetail.as_view()),
-
+    url(r'^api/reviews/$', ReviewsList.as_view()),
+    url(r'^api/reviews/(?P<pk>[0-9]+)/$', ReviewDetail.as_view()),
 
     url(r'^api/groups/$', GroupsList.as_view()),
     url(r'^api/groups/(?P<pk>[0-9]+)/$', GroupDetail.as_view()),

@@ -78,3 +78,16 @@ class Directors(CommonInfo):
 
     def __str__(self):
         return "{}".format(self.name)
+
+
+class Reviews(CommonInfo):
+    review = models.TextField()
+    movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta(CommonInfo.Meta):
+        verbose_name = "Review"
+        verbose_name_plural = "Reviews"
+
+    def __str__(self):
+        return "{}-{}".format(self.user, self.created)
